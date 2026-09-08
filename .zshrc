@@ -72,7 +72,12 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git fzf zsh-autosuggestions zsh-syntax-highlighting)
 
+
 source $ZSH/oh-my-zsh.sh
+
+alias ls="eza --icons"
+alias ll="eza --long --icons"
+alias cat="batcat"
 
 # User configuration
 
@@ -105,6 +110,9 @@ source $ZSH/oh-my-zsh.sh
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 eval "$(zoxide init zsh)"
-alias ls="eza --icons"
-alias ll="eza --long --icons"
-alias cat="batcat"
+
+eval "$(/home/alex/.local/bin/mise activate zsh)" # added by https://mise.run/zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
